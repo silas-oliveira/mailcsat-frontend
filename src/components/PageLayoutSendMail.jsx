@@ -3,12 +3,12 @@ import Footer from "./Footer/Footer";
 import HeaderDashboard from "./Header/HeaderDashboard";
 import Sidebar from "../components/Sidebar/Sidebar"; // sidebar comum
 import SidebarAdm from "./Sidebar/SidebarAdm"; // sidebar admin
-import { useCurrentUser } from "../hook/useCurrentUser.js";
+import { useCurrentUser } from "../hooks/useCurrentUser.js";
 
-export default function PageLayoutSendMail({ 
-  children, 
-  header = <HeaderDashboard />, 
-  showHeader = true 
+export default function PageLayoutSendMail({
+  children,
+  header = <HeaderDashboard />,
+  showHeader = true
 }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { user } = useCurrentUser();
@@ -39,9 +39,8 @@ export default function PageLayoutSendMail({
       <SidebarComponent isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
       <div
-        className={`flex flex-col flex-1 transition-all duration-300 ${
-          isSidebarOpen ? "ml-64" : "ml-20"
-        }`}
+        className={`flex flex-col flex-1 transition-all duration-300 ${isSidebarOpen ? "ml-64" : "ml-20"
+          }`}
       >
         {showHeader && (
           <header className="flex flex-col items-center justify-center h-32 text-center w-full">

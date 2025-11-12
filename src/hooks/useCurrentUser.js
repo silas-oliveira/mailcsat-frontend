@@ -10,7 +10,7 @@ export const useCurrentUser = () => {
     if (storedToken) {
       try {
         const decoded = jwtDecode(storedToken);
-        setUser(decoded); // decoded deve conter user_adm
+        setUser(decoded);
         setToken(storedToken);
       } catch (error) {
         console.error("Token inválido", error);

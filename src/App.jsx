@@ -32,12 +32,11 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <HashRouter>
       <Routes>
-        {/* Redirecionamento padrão baseado no usuário salvo */}
         <Route
           path="/"
           element={
             <Navigate
-              to={localStorage.getItem("user") ? "/send-emails" : "/auth/login"}
+              to={localStorage.getItem("token") ? "/send-emails" : "/auth/login"}
             />
           }
         />

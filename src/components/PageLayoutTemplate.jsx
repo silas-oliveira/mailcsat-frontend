@@ -4,7 +4,7 @@ import HeaderTemplate from "./Header/HeaderTemplate";
 import { motion } from "framer-motion";
 import Sidebar from "../components/Sidebar/Sidebar";
 import SidebarAdm from "./Sidebar/SidebarAdm";
-import { useCurrentUser } from "../hook/useCurrentUser.js";
+import { useCurrentUser } from "../hooks/useCurrentUser.js";
 
 export default function PageLayoutTemplate({ children, showHeader = true }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

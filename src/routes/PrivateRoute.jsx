@@ -3,17 +3,11 @@ import { Navigate } from "react-router-dom";
 import { useCurrentUser } from "../hooks/useCurrentUser";
 
 const PrivateRoute = ({ children }) => {
-  const { user } = useCurrentUser();
+  const { user, token } = useCurrentUser();
 
-  if (user === null) {
-    return (
-      <div className="flex items-center justify-center min-h-screen text-white">
-        <p>Carregando usuário...</p>
-      </div>
-    );
-  }
+  if (user === null) return null
 
-  if (!user) {
+  if (!user || !token) {
     return <Navigate to="/auth/login" />;
   }
 

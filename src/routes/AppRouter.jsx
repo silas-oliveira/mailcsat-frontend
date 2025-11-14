@@ -3,7 +3,9 @@ import { useCurrentUser } from "../hooks/useCurrentUser"
 
 import PrivateRoute from "./PrivateRoute"
 
-import PageLayoutSendMail from "../components/PageLayoutSendMail"
+import AuthLayout from "../components/layout/AuthLayout"
+import AuthenticatedLayout from "../components/layout/AuthenticatedLayout"
+
 
 import HeaderLogin from "../components/Header/HeaderLogin"
 import HeaderRegister from "../components/Header/HeaderRegister"
@@ -17,7 +19,6 @@ import EmailForm from "../pages/EmailForm/EmailForm"
 import Dashboard from "../pages/Dashboard/Dashboard"
 import Profile from "../pages/Profile/ProfilePage"
 import PainelAdmistrativo from "../pages/PainelAdminstrativo/PainelAdmistrativo"
-import AuthLayout from "../components/layout/AuthLayout"
 
 import TemplateGeneratorPage from '../pages/Templates/TemplateGeneratorPage'
 
@@ -38,12 +39,12 @@ export function AppRouter() {
         path="/send-emails"
         element={
           <PrivateRoute>
-            <PageLayoutSendMail
+            <AuthenticatedLayout
               showHeader={true}
               header={<HeaderDashboard />}
             >
               <EmailForm />
-            </PageLayoutSendMail>
+            </AuthenticatedLayout>
           </PrivateRoute>
         }
       />
@@ -76,12 +77,12 @@ export function AppRouter() {
         path="/painel"
         element={
           <PrivateRoute>
-            <PageLayoutSendMail
+            <AuthenticatedLayout
               showHeader={true}
               header={<HeaderAdministrativo />}
             >
               <PainelAdmistrativo />
-            </PageLayoutSendMail>
+            </AuthenticatedLayout>
           </PrivateRoute>
         }
       />
@@ -90,12 +91,12 @@ export function AppRouter() {
         path="/dashboard"
         element={
           <PrivateRoute>
-            <PageLayoutSendMail
+            <AuthenticatedLayout
               showHeader={true}
               header={<HeaderDashboard />}
             >
               <Dashboard />
-            </PageLayoutSendMail>
+            </AuthenticatedLayout>
           </PrivateRoute>
         }
       />
@@ -104,12 +105,12 @@ export function AppRouter() {
         path="/profile"
         element={
           <PrivateRoute>
-            <PageLayoutSendMail
+            <AuthenticatedLayout
               showHeader={true}
               header={<HeaderProfile />}
             >
               <Profile />
-            </PageLayoutSendMail>
+            </AuthenticatedLayout>
           </PrivateRoute>
         }
       />
@@ -118,12 +119,12 @@ export function AppRouter() {
         path="/templates"
         element={
           <PrivateRoute>
-            <PageLayoutSendMail
+            <AuthenticatedLayout
               showHeader={true}
               header={<HeaderDashboard />}
             >
               <TemplateGeneratorPage />
-            </PageLayoutSendMail>
+            </AuthenticatedLayout>
           </PrivateRoute>
         }
       />

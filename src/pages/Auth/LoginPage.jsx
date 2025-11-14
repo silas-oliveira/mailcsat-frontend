@@ -3,7 +3,6 @@ import { Mail, Lock } from "lucide-react";
 import FormInput from "../../components/FormInput/FormInput.jsx";
 import useLoginForm from "./login.js";
 import { useNavigate } from "react-router-dom";
-import PageLayout from "../../components/PageLayout.jsx";
 
 const MotionForm = motion.form;
 

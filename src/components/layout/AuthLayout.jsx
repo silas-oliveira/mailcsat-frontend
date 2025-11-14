@@ -1,13 +1,16 @@
 import React from "react";
-import Footer from "./Footer/Footer";
-import HeaderLogin from "./Header/HeaderLogin";
+import Footer from '../Footer/Footer'
 
-export default function PageLayout({ children, header = <HeaderLogin />, showHeader = true }) {
+export default function AuthLayout({
+  children,
+  header,
+  showHeader = true
+}) {
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-[#4c1d95] via-[#5b21b6] to-[#3b0764] grid grid-rows-[auto_1fr_auto] px-4">
+
       {showHeader && (
         <header className="flex flex-col items-center justify-center h-32 text-center">
-
           {header}
         </header>
       )}
@@ -18,6 +21,5 @@ export default function PageLayout({ children, header = <HeaderLogin />, showHea
 
       <Footer />
     </div>
-  );
+  )
 }
-

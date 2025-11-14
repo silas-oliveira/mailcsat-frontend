@@ -3,8 +3,6 @@ import { useCurrentUser } from "../hooks/useCurrentUser"
 
 import PrivateRoute from "./PrivateRoute"
 
-import PageLayout from "../components/PageLayout"
-import PageLayoutRegister from "../components/PageLayoutRegister"
 import PageLayoutSendMail from "../components/PageLayoutSendMail"
 
 import HeaderLogin from "../components/Header/HeaderLogin"
@@ -19,6 +17,9 @@ import EmailForm from "../pages/EmailForm/EmailForm"
 import Dashboard from "../pages/Dashboard/Dashboard"
 import Profile from "../pages/Profile/ProfilePage"
 import PainelAdmistrativo from "../pages/PainelAdminstrativo/PainelAdmistrativo"
+import AuthLayout from "../components/layout/AuthLayout"
+
+import TemplateGeneratorPage from '../pages/Templates/TemplateGeneratorPage'
 
 export function AppRouter() {
   const { token } = useCurrentUser()
@@ -50,24 +51,24 @@ export function AppRouter() {
       <Route
         path="/auth/register"
         element={
-          <PageLayoutRegister
+          <AuthLayout
             showHeader={true}
             header={<HeaderRegister />}
           >
             <Register />
-          </PageLayoutRegister>
+          </AuthLayout>
         }
       />
 
       <Route
         path="/auth/login"
         element={
-          <PageLayout
+          <AuthLayout
             showHeader={true}
             header={<HeaderLogin />}
           >
             <Login />
-          </PageLayout>
+          </AuthLayout>
         }
       />
 
@@ -108,6 +109,20 @@ export function AppRouter() {
               header={<HeaderProfile />}
             >
               <Profile />
+            </PageLayoutSendMail>
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/templates"
+        element={
+          <PrivateRoute>
+            <PageLayoutSendMail
+              showHeader={true}
+              header={<HeaderDashboard />}
+            >
+              <TemplateGeneratorPage />
             </PageLayoutSendMail>
           </PrivateRoute>
         }

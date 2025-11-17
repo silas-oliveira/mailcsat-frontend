@@ -2,8 +2,8 @@
 
 
 import React, { useState } from "react";
-import Sidebar from "../Sidebar/Sidebar";
-import Footer from "../Footer/Footer";
+import Sidebar from "../components/Sidebar/Sidebar";
+import Footer from "../components/Footer/Footer";
 
 export default function AuthenticatedLayout({
   children,

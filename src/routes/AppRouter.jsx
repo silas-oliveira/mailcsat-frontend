@@ -3,8 +3,8 @@ import { useCurrentUser } from "../hooks/useCurrentUser"
 
 import PrivateRoute from "./PrivateRoute"
 
-import AuthLayout from "../components/layout/AuthLayout"
-import AuthenticatedLayout from "../components/layout/AuthenticatedLayout"
+import AuthLayout from "../layouts/AuthLayout"
+import AuthenticatedLayout from "../layouts/AuthenticatedLayout"
 
 
 import HeaderLogin from "../components/Header/HeaderLogin"

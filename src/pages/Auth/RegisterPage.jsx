@@ -3,9 +3,6 @@ import { Toaster } from "react-hot-toast";
 import { useEffect, useState } from "react";
 import FormInput from "../../components/FormInput/FormInput";
 import useRegister from "./register";
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/HeaderLogin";
-import HeaderRegister from "../../components/Header/HeaderRegister";
 import GradientButton from "../../components/GradientButton/GradientButton";
 import { Lock, Mail, User } from "lucide-react";
 import Back from "../../components/Back/Back";
@@ -56,7 +53,7 @@ export default function Register() {
     // <div className="flex flex-col items-center justify-center flex-1 w-full">
     <div className="flex flex-col items-center justify-center w-full max-w-md gap-8">
 
-      
+
       <AnimatePresence>
         {showError && (
           <MotionAlert
@@ -79,7 +76,7 @@ export default function Register() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="w-full bg-white rounded-xl shadow-lg border border-1 border-orange-500 p-8 space-y-6 text-black"
       >
-        <Back/>
+        <Back />
         <h2 className="text-3xl font-semibold text-center text-[#512DA8]">Registro</h2>
 
         <FormInput

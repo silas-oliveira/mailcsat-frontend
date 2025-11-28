@@ -1,5 +1,7 @@
 import './styles/tailwind.css';
 
+import "./theme.js";
+
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
@@ -9,7 +11,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 import { AppRouter } from './routes/AppRouter';
-
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

@@ -3,24 +3,19 @@ import { useCurrentUser } from "../hooks/useCurrentUser"
 
 import PrivateRoute from "./PrivateRoute"
 
+import AppHeader from "../components/Header/AppHeader"
+
 import AuthLayout from "../layouts/AuthLayout"
 import AuthenticatedLayout from "../layouts/AuthenticatedLayout"
-
-
-import HeaderLogin from "../components/Header/HeaderLogin"
-import HeaderRegister from "../components/Header/HeaderRegister"
-import HeaderDashboard from "../components/Header/HeaderDashboard"
-import HeaderAdministrativo from "../components/Header/HeaderAdminstrativo"
-import HeaderProfile from "../components/Header/HeaderProfile"
 
 import Login from "../pages/Auth/LoginPage"
 import Register from "../pages/Auth/RegisterPage"
 import EmailForm from "../pages/EmailForm/EmailForm"
-import Dashboard from "../pages/Dashboard/Dashboard"
 import Profile from "../pages/Profile/ProfilePage"
-import PainelAdmistrativo from "../pages/PainelAdminstrativo/PainelAdmistrativo"
 
 import TemplateGeneratorPage from '../pages/Templates/TemplateGeneratorPage'
+import TesteFlex from "../components/teste"
+import { Mail, Notebook, Send, SquareUser, Wand2 } from "lucide-react"
 
 export function AppRouter() {
   const { token } = useCurrentUser()
@@ -41,7 +36,14 @@ export function AppRouter() {
           <PrivateRoute>
             <AuthenticatedLayout
               showHeader={true}
-              header={<HeaderDashboard />}
+              header={<AppHeader
+                title="Mail CSAT"
+                subtitle="Adicione clientes e envie lembretes para responderem à pesquisa de satisfação."
+                icon={Send}
+                iconSize={22}
+                iconColor="#8abcfb"
+                animationType="float"
+              />}
             >
               <EmailForm />
             </AuthenticatedLayout>
@@ -54,7 +56,14 @@ export function AppRouter() {
         element={
           <AuthLayout
             showHeader={true}
-            header={<HeaderRegister />}
+            header={<AppHeader
+              title="Criar conta"
+              subtitle="Crie sua conta e facilite o envio de pesquisas."
+              icon={Notebook}
+              iconSize={22}
+              iconColor="#8abcfb"
+              animationType="float"
+            />}
           >
             <Register />
           </AuthLayout>
@@ -66,14 +75,22 @@ export function AppRouter() {
         element={
           <AuthLayout
             showHeader={true}
-            header={<HeaderLogin />}
+            header={<AppHeader
+              title="Mail CSAT"
+              subtitle="Envie lembretes automáticos para aumentar as respostas do CSAT."
+              icon={Mail}
+              iconSize={22}
+              iconColor="#8abcfb"
+              animationType="float"
+            />
+            }
           >
             <Login />
           </AuthLayout>
         }
       />
 
-      <Route
+      {/* <Route
         path="/painel"
         element={
           <PrivateRoute>
@@ -85,9 +102,9 @@ export function AppRouter() {
             </AuthenticatedLayout>
           </PrivateRoute>
         }
-      />
+      /> */}
 
-      <Route
+      {/* <Route
         path="/dashboard"
         element={
           <PrivateRoute>
@@ -99,7 +116,7 @@ export function AppRouter() {
             </AuthenticatedLayout>
           </PrivateRoute>
         }
-      />
+      /> */}
 
       <Route
         path="/profile"
@@ -107,7 +124,15 @@ export function AppRouter() {
           <PrivateRoute>
             <AuthenticatedLayout
               showHeader={true}
-              header={<HeaderProfile />}
+              header={<AppHeader
+                title="Perfil de usuário"
+                subtitle="Gerencie os dados do seu perfil."
+                icon={SquareUser}
+                iconSize={22}
+                iconColor="#ffffff"
+                animationType="rotate"
+              />
+              }
             >
               <Profile />
             </AuthenticatedLayout>
@@ -121,12 +146,25 @@ export function AppRouter() {
           <PrivateRoute>
             <AuthenticatedLayout
               showHeader={true}
-              header={<HeaderDashboard />}
+              header={<AppHeader
+                title="Gerador de Templates"
+                subtitle="Crie e-mails automaticamente com auxílio de IA ✨"
+                icon={Wand2}
+                iconSize={32}
+                iconColor="#f4d35e"
+                animationType="rotate"
+              />
+              }
             >
               <TemplateGeneratorPage />
             </AuthenticatedLayout>
           </PrivateRoute>
         }
+      />
+      <Route
+        path="/teste"
+
+        element={<TesteFlex />}
       />
     </Routes>
   )
